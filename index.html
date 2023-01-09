@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>ACM - Gallery</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="header">ACM - Gallery</div>
+            <div class="gallery"></div>
+        </div>
+    </body>
+
+    <script>
+        let gallery = document.querySelector(".gallery");
+        let count = 50; // COUNT OF IMAGES
+        for (let index = 0; index < count; index++) {
+            var image = document.createElement("img");
+            image.className = "img";
+            image.setAttribute("loading", "lazy");
+            image.src = "images/" + String(index + 1) + ".jpg";
+            gallery.append(image);
+        }
+    </script>
+</html>

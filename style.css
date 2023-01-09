@@ -1,0 +1,25 @@
+body {
+    background: linear-gradient(180deg, #eafc83, #eabf8e, #f5b5b5);
+}
+
+.header {
+    padding: 20px;
+    font-size: 5vh;
+    font-family: "Circular Std Book";
+    color: black;
+    align-content: center;
+    text-align: center;
+}
+
+.gallery {
+    text-align: center;
+}
+
+.img {
+    max-width: 30%;
+    max-height: 30%;
+    border-radius: 10px;
+    border-color: black;
+    vertical-align: middle;
+    padding: 5px;
+}
