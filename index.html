@@ -18,11 +18,19 @@
         let gallery = document.querySelector(".gallery");
         let count = 50; // COUNT OF IMAGES
         for (let index = 0; index < count; index++) {
+            var url = "images/" + String(index + 1) + ".jpg";
+
             var image = document.createElement("img");
             image.className = "img";
             image.setAttribute("loading", "lazy");
-            image.src = "images/" + String(index + 1) + ".jpg";
-            gallery.append(image);
+            image.src = url;
+
+            var link = document.createElement("a");
+            link.setAttribute("target", "_blank");
+            link.setAttribute("href", url);
+            link.append(image);
+
+            gallery.append(link);
         }
     </script>
 </html>
