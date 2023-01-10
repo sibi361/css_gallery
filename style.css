@@ -13,13 +13,15 @@ body {
 
 .gallery {
     text-align: center;
+    width: auto;
 }
 
 .img {
-    max-width: 30%;
+    display: inline-block;
+    max-width: 40vh;
     max-height: 30%;
-    border-radius: 10px;
+    border-radius: 15px;
     border-color: black;
     vertical-align: middle;
-    padding: 5px;
+    padding: 10px;
 }
