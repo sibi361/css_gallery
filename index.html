@@ -5,32 +5,50 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>ACM - Gallery</title>
         <link rel="stylesheet" type="text/css" href="style.css" />
+        <script>
+            function showViewer() {
+                let overlay = document.querySelector("#overlay");
+                let viewerImage = document.querySelector("#viewerImageElement");
+                overlay.style.display = "block";
+                viewerImage.src = this.src;
+            }
+        </script>
     </head>
 
-    <body>
+    <body id="body_gallery">
         <div class="container">
-            <div class="header">ACM - Gallery</div>
+            <!-- <div class="header">ACM - Gallery</div> -->
             <div class="gallery"></div>
+
+            <div id="overlay">
+                <div class="viewer">
+                    <image
+                        class="viewerImage image"
+                        id="viewerImageElement"
+                    ></image>
+                </div>
+            </div>
         </div>
+
+        <script>
+            let gallery = document.querySelector(".gallery");
+            let count = 50; // COUNT OF IMAGES
+            for (let index = 0; index < count; index++) {
+                var url = "images/" + String(index + 1) + ".jpg";
+                var image = document.createElement("img");
+                image.className = "galleryImage image";
+                image.setAttribute("loading", "lazy");
+                image.src = url;
+
+                image.addEventListener("click", showViewer);
+                gallery.append(image);
+            }
+        </script>
+        <script defer>
+            overlay.addEventListener("click", () => {
+                overlay.style.display = "none";
+            });
+            document.querySelector(".image").click();
+        </script>
     </body>
-
-    <script>
-        let gallery = document.querySelector(".gallery");
-        let count = 50; // COUNT OF IMAGES
-        for (let index = 0; index < count; index++) {
-            var url = "images/" + String(index + 1) + ".jpg";
-
-            var image = document.createElement("img");
-            image.className = "img";
-            image.setAttribute("loading", "lazy");
-            image.src = url;
-
-            var link = document.createElement("a");
-            link.setAttribute("target", "_blank");
-            link.setAttribute("href", url);
-            link.append(image);
-
-            gallery.append(link);
-        }
-    </script>
 </html>
