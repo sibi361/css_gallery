@@ -17,7 +17,7 @@
 
     <body id="body_gallery">
         <div class="container">
-            <!-- <div class="header">ACM - Gallery</div> -->
+            <div class="header">Gallery</div>
             <div class="gallery"></div>
 
             <div id="overlay">
@@ -30,7 +30,7 @@
             </div>
         </div>
 
-        <script>
+        <script defer>
             let gallery = document.querySelector(".gallery");
             let count = 50; // COUNT OF IMAGES
             for (let index = 0; index < count; index++) {
@@ -48,7 +48,6 @@
             overlay.addEventListener("click", () => {
                 overlay.style.display = "none";
             });
-            document.querySelector(".image").click();
         </script>
     </body>
 </html>

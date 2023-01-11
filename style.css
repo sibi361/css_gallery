@@ -7,7 +7,6 @@
     font-size: 5vh;
     font-family: "Circular Std Book";
     color: black;
-    align-content: center;
     text-align: center;
 }
 
@@ -17,13 +16,13 @@
 
 .galleryImage {
     max-width: 40vh;
-    border-color: black;
     vertical-align: middle;
     padding: 10px;
     border-radius: 15px;
 }
 
 #overlay {
+    display: none;
     position: fixed; /* Sit on top of the page content */
     width: 100%; /* Full width (cover the whole page) */
     height: 100%; /* Full height (cover the whole page) */
