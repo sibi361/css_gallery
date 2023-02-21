@@ -1,4 +1,4 @@
 # ACM_gallery
 
-Demo: https://www.sibis.me/ACM_gallery/
+Demo: https://sibi361.github.io/ACM_gallery/
 
