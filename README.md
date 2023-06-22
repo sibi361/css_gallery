@@ -6,5 +6,8 @@ Demo: https://sibi361.github.io/ACM_gallery/
 
 # TODO:
 
--   [ ] Image viewer should go full screen
+-   [x] Full screen image viewer
+-   [ ] Fix navigation arrows not disappearing on mobile view
+-   [ ] Add tap to toggle navigation listener on spacer
 -   [ ] Add swipe navigation in mobile view
+-   [ ] Animate on viewer image change

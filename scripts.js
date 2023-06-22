@@ -1,3 +1,4 @@
+const bodyElement = document.querySelector("body");
 const gallery = document.querySelector(".gallery");
 const overlay = document.querySelector(".overlay");
 const viewer = document.querySelector(".viewer");
@@ -9,22 +10,13 @@ const IMAGES_EXTENSION = ".jpg";
 
 function showViewer() {
     overlay.style.display = "block";
+    bodyElement.style.overflow = "hidden";
     viewerImage.src = this.src;
-    fixViewerWidth();
 }
 
 function hideViewer() {
     overlay.style.display = "none";
-}
-
-function fixViewerWidth() {
-    // fix for the nav arrow buttons showing outside the image
-    // PENDING
-    console.log(viewerImage.width, viewer.offsetWidth);
-
-    if (viewerImage.offsetWidth <= viewer.offsetWidth)
-        viewer.style.width = `${viewerImage.offsetWidth}px`;
-    else viewer.style.width = "90%";
+    bodyElement.style.overflow = "visible";
 }
 
 function createImageLink(id) {
@@ -66,8 +58,6 @@ function changeViewerImage(delta) {
     if (newImageId < 1) newImageId = IMAGE_COUNT + newImageId;
     if (newImageId > IMAGE_COUNT) newImageId -= IMAGE_COUNT;
     viewerImage.src = createImageLink(newImageId);
-
-    fixViewerWidth();
 }
 
 navBackward.addEventListener("click", (e) => {
