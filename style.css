@@ -1,12 +1,23 @@
+:root {
+    --header-colour: #000;
+    --overlay-bg-colour: rgba(0, 0, 0, 0.8);
+    --overlay-safety-margin: 5vh;
+    --arrow-bg-colour: rgba(0, 0, 0, 0.5);
+    --arrow-opacity: 0.5;
+    --image-border-radius: 16px;
+}
+
 body {
     background: linear-gradient(180deg, #eafc83, #eabf8e, #f5b5b5);
+    font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir,
+        segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto,
+        arial, sans-serif;
 }
 
 .header {
     padding: 20px;
-    font-size: 5vh;
-    font-family: "Circular Std Book";
-    color: black;
+    font-size: 3rem;
+    color: var(--header-colour);
     text-align: center;
 }
 
@@ -16,29 +27,20 @@ body {
     grid-gap: 24px;
 }
 
-@media screen and (max-width: 768px) {
-    .container {
-        grid-template-columns: 1fr;
-    }
-}
-
-.image {
+.galleryImage {
     width: 100%;
-    border-radius: 16px;
+    border-radius: var(--image-border-radius);
 }
 
 .overlay {
     display: none;
     position: fixed; /* Sit on top of the page content */
-    width: 100%; /* Full width (cover the whole page) */
-    height: 100%; /* Full height (cover the whole page) */
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
-    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-    cursor: pointer; /* Add a pointer on hover */
+    background-color: var(--overlay-bg-colour);
+    z-index: 2;
 }
 
 .viewer {
@@ -46,13 +48,109 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
     text-align: center;
-    width: 100%;
+    width: 90%;
 }
 
 .viewerImage {
-    border: none;
-    /* required for mobile view */
-    max-width: 90%;
-    max-height: 95vh;
+    max-width: 100%;
+    max-height: calc(100vh - var(--overlay-safety-margin));
+    border-radius: var(--image-border-radius);
+}
+
+.nav {
+    /* to make nav stay above image */
+    position: absolute;
+    transform: translate(0%, -100%);
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+}
+
+.nav > * {
+    display: flex;
+    align-items: center;
+}
+
+.nav-backward {
+    justify-content: flex-start;
+}
+
+.nav-forward {
+    justify-content: flex-end;
+}
+
+.nav-backward,
+.nav-forward {
+    flex: 1;
+}
+
+.arrow-container {
+    display: flex;
+    align-items: center;
+
+    width: 10rem;
+    height: calc(100% - 5px);
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.arrow-container > img {
+    width: 30%;
+    opacity: var(--arrow-opacity);
+}
+
+.arrow-container {
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.arrow-container:hover {
+    opacity: 1;
+}
+
+.nav-backward > .arrow-container {
+    border-radius: var(--image-border-radius) 0 0 var(--image-border-radius);
+}
+
+.nav-forward > .arrow-container {
+    display: flex;
+    justify-content: flex-end;
+
+    border-radius: 0 var(--image-border-radius) var(--image-border-radius) 0;
+}
+
+.nav-backward > .arrow-container {
+    background: linear-gradient(
+        270deg,
+        rgba(0, 0, 0, 0),
+        var(--arrow-bg-colour)
+    );
+}
+
+.nav-forward > .arrow-container {
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0),
+        var(--arrow-bg-colour)
+    );
+}
+
+.footer {
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .arrow-container {
+        width: 2rem;
+    }
 }

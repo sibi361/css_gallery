@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>ACM - Gallery</title>
         <link rel="stylesheet" type="text/css" href="style.css" />
+        <script src="scripts.js" defer></script>
     </head>
 
     <body>
@@ -14,44 +15,25 @@
 
             <div class="overlay">
                 <div class="viewer">
-                    <image
-                        class="viewerImage image"
-                        id="viewerImageElement"
-                    ></image>
+                    <image class="viewerImage"></image>
+                    <div class="nav">
+                        <div class="nav-backward">
+                            <div class="arrow-container">
+                                <img src="icons/arrow-left.svg" alt="" />
+                            </div>
+                        </div>
+                        <div class="nav-forward">
+                            <div class="arrow-container">
+                                <img src="icons/arrow-right.svg" alt="" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="footer">
+                The above images were sourced from Google and are used here
+                purely for demonstrative purposes, not commercial gain.
+            </div>
         </div>
-
-        <script defer>
-            const overlay = document.querySelector(".overlay");
-
-            function showViewer() {
-                // let viewerImage = document.querySelector("#viewerImageElement");
-                const viewerImage = document.querySelector(
-                    "#viewerImageElement"
-                );
-                overlay.style.display = "block";
-                viewerImage.src = this.src;
-                // this.parentElement.background = `url(${this.src})`;
-                console.log(this.parentElement);
-            }
-
-            const gallery = document.querySelector(".gallery");
-            const count = 50; // COUNT OF IMAGES
-            for (let index = 0; index < count; index++) {
-                var url = "images/" + String(index + 1) + ".jpg";
-                var image = document.createElement("img");
-                image.className = "galleryImage image";
-                image.setAttribute("loading", "lazy");
-                image.src = url;
-
-                image.addEventListener("click", showViewer);
-                gallery.append(image);
-            }
-
-            overlay.addEventListener("click", () => {
-                overlay.style.display = "none";
-            });
-        </script>
     </body>
 </html>
