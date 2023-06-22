@@ -1,9 +1,10 @@
 :root {
     --header-colour: #000;
-    --overlay-bg-colour: rgba(0, 0, 0, 0.8);
+    --overlay-opacity: 0.9;
     --overlay-safety-margin: 5vh;
-    --arrow-bg-colour: rgba(0, 0, 0, 0.5);
-    --arrow-opacity: 0.5;
+    --arrow-bg-opacity: 0.2;
+    --arrow-opacity: 0.3;
+    --arrow-transition-time: 0.2s;
     --image-border-radius: 16px;
 }
 
@@ -39,7 +40,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--overlay-bg-colour);
+    background-color: rgba(0, 0, 0, var(--overlay-opacity));
     z-index: 2;
 }
 
@@ -55,8 +56,9 @@ body {
 
 .viewerImage {
     max-width: 100%;
-    max-height: calc(100vh - var(--overlay-safety-margin));
-    border-radius: var(--image-border-radius);
+    max-height: 100vh;
+    /* max-height: calc(100vh - var(--overlay-safety-margin)); */
+    /* border-radius: var(--image-border-radius); */
 }
 
 .nav {
@@ -78,6 +80,10 @@ body {
     justify-content: flex-start;
 }
 
+.nav-spacer {
+    flex: 1;
+}
+
 .nav-forward {
     justify-content: flex-end;
 }
@@ -87,11 +93,20 @@ body {
     flex: 1;
 }
 
+.nav > * {
+    opacity: 0;
+    transition: opacity var(--arrow-transition-time);
+}
+
+.nav > *:hover {
+    opacity: 1;
+}
+
 .arrow-container {
     display: flex;
     align-items: center;
 
-    width: 10rem;
+    width: 100%;
     height: calc(100% - 5px);
     cursor: pointer;
     margin-bottom: 5px;
@@ -102,17 +117,13 @@ body {
     opacity: var(--arrow-opacity);
 }
 
-.arrow-container {
-    opacity: 0;
-    transition: opacity 0.2s;
-}
-
-.arrow-container:hover {
-    opacity: 1;
-}
-
 .nav-backward > .arrow-container {
     border-radius: var(--image-border-radius) 0 0 var(--image-border-radius);
+    background: linear-gradient(
+        270deg,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, var(--arrow-bg-opacity))
+    );
 }
 
 .nav-forward > .arrow-container {
@@ -120,21 +131,10 @@ body {
     justify-content: flex-end;
 
     border-radius: 0 var(--image-border-radius) var(--image-border-radius) 0;
-}
-
-.nav-backward > .arrow-container {
-    background: linear-gradient(
-        270deg,
-        rgba(0, 0, 0, 0),
-        var(--arrow-bg-colour)
-    );
-}
-
-.nav-forward > .arrow-container {
     background: linear-gradient(
         90deg,
         rgba(0, 0, 0, 0),
-        var(--arrow-bg-colour)
+        rgba(0, 0, 0, var(--arrow-bg-opacity))
     );
 }
 

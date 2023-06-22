@@ -48,8 +48,9 @@ for (let index = 0; index < IMAGE_COUNT; index++) {
 overlay.addEventListener("click", hideViewer);
 
 // viewer nav
-const backward = document.querySelector(".nav-backward");
-const forward = document.querySelector(".nav-forward");
+const navBackward = document.querySelector(".nav-backward");
+const navSpacer = document.querySelector(".nav-spacer");
+const navForward = document.querySelector(".nav-forward");
 
 function getImageIdFromLink(imgLink) {
     return Number(
@@ -69,14 +70,18 @@ function changeViewerImage(delta) {
     fixViewerWidth();
 }
 
-backward.addEventListener("click", (e) => {
+navBackward.addEventListener("click", (e) => {
     e.stopPropagation();
     changeViewerImage(-1);
 });
 
-forward.addEventListener("click", (e) => {
+navForward.addEventListener("click", (e) => {
     e.stopPropagation();
     changeViewerImage(1);
+});
+
+navSpacer.addEventListener("click", (e) => {
+    e.stopPropagation();
 });
 
 document.addEventListener("keydown", (e) => {
