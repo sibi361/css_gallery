@@ -1,8 +1,8 @@
 # css_gallery
 
-A mobile-friendly image gallery that includes a popup image viewer made using vanilla CSS.
+Mobile-friendly image gallery made using vanilla CSS.
 
-Demo: https://sibi361.github.io/ACM_gallery/
+Demo: https://sibi361.github.io/css_gallery/
 
 # TODO:
 
