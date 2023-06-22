@@ -5,22 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>ACM - Gallery</title>
         <link rel="stylesheet" type="text/css" href="style.css" />
-        <script>
-            function showViewer() {
-                let overlay = document.querySelector("#overlay");
-                let viewerImage = document.querySelector("#viewerImageElement");
-                overlay.style.display = "block";
-                viewerImage.src = this.src;
-            }
-        </script>
     </head>
 
-    <body id="body_gallery">
+    <body>
         <div class="container">
             <div class="header">Gallery</div>
             <div class="gallery"></div>
 
-            <div id="overlay">
+            <div class="overlay">
                 <div class="viewer">
                     <image
                         class="viewerImage image"
@@ -31,8 +23,21 @@
         </div>
 
         <script defer>
-            let gallery = document.querySelector(".gallery");
-            let count = 50; // COUNT OF IMAGES
+            const overlay = document.querySelector(".overlay");
+
+            function showViewer() {
+                // let viewerImage = document.querySelector("#viewerImageElement");
+                const viewerImage = document.querySelector(
+                    "#viewerImageElement"
+                );
+                overlay.style.display = "block";
+                viewerImage.src = this.src;
+                // this.parentElement.background = `url(${this.src})`;
+                console.log(this.parentElement);
+            }
+
+            const gallery = document.querySelector(".gallery");
+            const count = 50; // COUNT OF IMAGES
             for (let index = 0; index < count; index++) {
                 var url = "images/" + String(index + 1) + ".jpg";
                 var image = document.createElement("img");
@@ -43,8 +48,7 @@
                 image.addEventListener("click", showViewer);
                 gallery.append(image);
             }
-        </script>
-        <script defer>
+
             overlay.addEventListener("click", () => {
                 overlay.style.display = "none";
             });
