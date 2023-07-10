@@ -11,3 +11,5 @@ Demo: https://sibi361.github.io/css_gallery/
 -   [ ] Add tap to toggle navigation listener on spacer
 -   [ ] Add swipe navigation in mobile view
 -   [ ] Animate on viewer image change
+-   [ ] Add slideshow mode: advances the pictures every few seconds
+-   [ ] Navigation dots at bottom
